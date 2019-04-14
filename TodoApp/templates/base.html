@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}  لیست کارهای روزانه مسیحا {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-responsive.css' %}">
+</head>
+<body>
+{% block body %}
+    <div class="container">
+        {% include "include/top_menu.html" %}
+        {% include "include/content.html" %}
+
+    </div>
+
+{% endblock body %}
+
+<script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+</html>

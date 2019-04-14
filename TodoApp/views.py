@@ -1,5 +1,9 @@
-from django.http import HttpResponse
+from django.views.generic import ListView
+
+from .models import MyTodo
 
 
-def index(request):
-    return HttpResponse("hello word! this is todo app")
+class Index(ListView):
+    model = MyTodo
+    context_object_name = "lst_my_works"
+    template_name = "base.html"
