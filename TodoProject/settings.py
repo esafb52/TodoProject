@@ -1,3 +1,4 @@
+import locale
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -24,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'TodoApp',
+    'jalali_date'
 ]
 
 MIDDLEWARE = [
@@ -88,7 +90,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fa-ir'
 
 TIME_ZONE = 'UTC'
 
@@ -98,6 +100,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+LANGUAGE_CODE = 'fa-ir'
+locale.setlocale(locale.LC_ALL, "fa_IR.UTF-8")
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
