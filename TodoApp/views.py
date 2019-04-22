@@ -1,7 +1,8 @@
+from django.contrib import messages
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 
-from .forms import AddTodoForm
+from .forms import AddTodoForm, TodoForm
 from .models import MyTodo
 
 
@@ -22,7 +23,26 @@ def add_todo(request):
 
 def delete_todo(request, id):
     get_object_or_404(MyTodo, pk=id).delete()
+    messages.add_message(request, messages.INFO, 'سطر مد نظر حذف شد ')
     return redirect('index')
+
+
+def edit_complete_todo(request, todo_id):
+    instance = get_object_or_404(MyTodo, id=todo_id)
+    form = TodoForm(request.POST or None, instance=instance)
+    if form.is_valid():
+        form.save()
+        return redirect('index')
+    return render(request, 'edit_todo.html', {'item': form})
+
+
+def my_view(request, id):
+    instance = get_object_or_404(MyTodo, id=id)
+    form = AddTodoForm(request.POST or None, instance=instance)
+    if form.is_valid():
+        form.save()
+        return redirect('index')
+    return render(request, 'edit_todo.html', {'item': form})
 
 
 def complete_todo(request, id):

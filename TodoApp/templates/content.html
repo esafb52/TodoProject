@@ -45,8 +45,10 @@
                         </a>
                     </td>
                     <td class="text-center">
-                        <button type="submit" class="btn m-1 btn-unite btn-unite-light-sense text-center"> ویرایش
-                        </button>
+                        <a href="{% url 'edit_todo' work.pk %}">
+                            <button type="submit" class="btn m-1 btn-unite btn-unite-light-sense text-center"> ویرایش
+                            </button>
+                        </a>
                     </td>
                     {% if work.state_complete %}
                         <td class="text-center">

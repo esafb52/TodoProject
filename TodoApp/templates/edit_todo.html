@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="container">
+
+        <form method="post" class="form-inline mb-2 my-lg-10" novalidate>
+            {% csrf_token %}
+            <div class="form-control ">
+                {{ item.work }}
+                <button type="submit" class="btn btn-success">ویرایش</button>
+                <a href="{% url 'index' %}"></a>
+                <button type="submit" class="btn btn-success">انصراف</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
