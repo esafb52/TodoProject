@@ -25,7 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'TodoApp',
-    'jalali_date'
+
 ]
 
 MIDDLEWARE = [
@@ -101,7 +101,7 @@ USE_L10N = True
 USE_TZ = True
 
 LANGUAGE_CODE = 'fa-ir'
-locale.setlocale(locale.LC_ALL, "fa_IR.UTF-8")
+# locale.setlocale(locale.LC_ALL, "fa_IR.UTF-8")
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 

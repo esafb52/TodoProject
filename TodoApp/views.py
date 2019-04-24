@@ -18,6 +18,7 @@ def add_todo(request):
     work = request.POST['work_txt']
     todo = MyTodo(work=work, user=user[0], state_complete=False)
     todo.save()
+    messages.success(request, '{} با موفقیت ذخیره شد '.format(work))
     return redirect('index')
 
 

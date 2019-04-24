@@ -1,17 +1,28 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block content %}
     <div class="container">
 
-        <form method="post" class="form-inline mb-2 my-lg-10" novalidate>
+        <div class="col-md-4 "></div>
+        <form method="post" class="form-control" novalidate>
             {% csrf_token %}
-            <div class="form-control ">
-                {{ item.work }}
-                <button type="submit" class="btn btn-success">ویرایش</button>
-                <a href="{% url 'index' %}"></a>
-                <button type="submit" class="btn btn-success">انصراف</button>
+            <div class="form-group">
+                <label for="exampleInputPassword1"> شرح کار : </label>
+                <div class="form-inline">
+                    {{ item.work }}
+                </div>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-success ce">ویرایش</button>
+                <a href="{% url 'index' %}">
+                    <button type="submit" class="btn btn-success">انصراف</button>
+                </a>
             </div>
         </form>
+
+    </div>
+    <div class="col-md-4 "></div> </div>
+
     </div>
 {% endblock %}
