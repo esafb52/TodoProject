@@ -9,7 +9,7 @@
             <div class="form-group col-md-6">
                 <div class="input-group">
                     {{ form.work_txt }}
-                    <button type="submit" class="btn m-1 btn-fill btn-fill-grey-700"> ثبت کار</button>
+                    <button type="submit" class="btn m-1 btn-jelly btn-jelly-success"> ثبت کار</button>
                 </div>
             </div>
         </form>
@@ -40,20 +40,20 @@
                     {% endif %}
                     <td class="text-center">
                         <a href="{% url 'delete_todo' id=work.id %}">
-                            <button type="submit"  class="btn m-1 btn-unite btn-unite-light-sense text-center" > حذف
+                            <button type="submit"  class="btn m-1 btn-jelly btn-jelly-danger" > حذف
                             </button>
                         </a>
                     </td>
                     <td class="text-center">
                         <a href="{% url 'edit_todo' work.pk %}">
-                            <button type="submit" class="btn m-1 btn-unite btn-unite-light-sense text-center"> ویرایش
+                            <button type="submit" class="btn m-1 btn-jelly btn-jelly-warning text-center"> ویرایش
                             </button>
                         </a>
                     </td>
                     {% if work.state_complete %}
                         <td class="text-center">
                             <a href="{% url 'incomplete_todo' id=work.id %}">
-                                <button type="submit" class="btn m-1 btn-unite btn-unite-light-sense text-center"> تکمیل
+                                <button type="submit" class="btn m-1 btn-jelly btn-jelly-golden-light"> تکمیل
                                     نشده
                                 </button>
                             </a>
@@ -62,7 +62,7 @@
                     {% else %}
                         <td class="text-center">
                             <a href="{% url 'complete_todo' id=work.id %}">
-                                <button type="submit" class="btn m-1 btn-unite btn-unite-light-sense text-center">
+                                <button type="submit" class="btn m-1 btn-jelly btn-jelly-golden-dark">
                                     تکمیل
                                 </button>
                             </a>
