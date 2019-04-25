@@ -34,13 +34,22 @@
                     <td class="text-center">{{ forloop.counter }}</td>
                     <td class="text-center">{{ work.work }}</td>
                     {% if work.state_complete %}
-                        <td class="text-center"> تکمیل شده</td>
+                        <td class="text-center">
+                            <img class="small" style="max-height: 50px;max-width: 50px;"
+                                 src="{% static 'img/tick.png' %}" alt="تکمیل">
+
+                        </td>
                     {% else %}
-                        <td class="text-center"> تکمیل نشده</td>
+                        <td class="text-center">
+                            <img class="small" style="max-height: 63px;max-width: 63px;"
+                                 src="{% static 'img/incomplete.png' %}" alt="تکمیل نشده">
+
+
+                        </td>
                     {% endif %}
                     <td class="text-center">
                         <a href="{% url 'delete_todo' id=work.id %}">
-                            <button type="submit"  class="btn m-1 btn-jelly btn-jelly-danger" > حذف
+                            <button type="submit" class="btn m-1 btn-jelly btn-jelly-danger"> حذف
                             </button>
                         </a>
                     </td>
