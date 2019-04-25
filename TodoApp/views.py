@@ -57,3 +57,8 @@ def incomplete_todo(request, id):
     this_todo.state_complete = False
     this_todo.save()
     return redirect('index')
+
+
+def about(request):
+    context = {}
+    return render(request, 'about.html', context)
