@@ -56,20 +56,20 @@
                         </td>
                     {% endif %}
                     <td class="text-center">
-                        <a href="{% url 'delete_todo' id=work.id %}">
+                        <a href="{% url 'delete_todo' todo_id=work.id %}">
                             <button type="submit" class="btn m-1 btn-jelly btn-jelly-danger"> حذف
                             </button>
                         </a>
                     </td>
                     <td class="text-center">
-                        <a href="{% url 'edit_todo' work.pk %}">
+                        <a href="{% url 'edit_todo' work.id %}">
                             <button type="submit" class="btn m-1 btn-jelly btn-jelly-warning text-center"> ویرایش
                             </button>
                         </a>
                     </td>
                     {% if work.state_complete %}
                         <td class="text-center">
-                            <a href="{% url 'incomplete_todo' id=work.id %}">
+                            <a href="{% url 'incomplete_todo' todo_id=work.id %}">
                                 <button type="submit" class="btn m-1 btn-jelly btn-jelly-golden-light"> تکمیل
                                     نشده
                                 </button>
@@ -78,7 +78,7 @@
 
                     {% else %}
                         <td class="text-center">
-                            <a href="{% url 'complete_todo' id=work.id %}">
+                            <a href="{% url 'complete_todo' todo_id=work.id %}">
                                 <button type="submit" class="btn m-1 btn-jelly btn-jelly-golden-dark">
                                     تکمیل
                                 </button>

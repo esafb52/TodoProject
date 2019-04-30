@@ -21,39 +21,35 @@ def add_todo(request):
     return redirect('index')
 
 
-def delete_todo(request, id):
-    get_object_or_404(MyTodo, pk=id).delete()
+def delete_todo(request, todo_id):
+    get_object_or_404(MyTodo, pk=todo_id).delete()
     messages.add_message(request, messages.INFO, 'سطر مد نظر حذف شد ')
     return redirect('index')
 
 
-def edit_complete_todo(request, todo_id):
-    instance = get_object_or_404(MyTodo, id=todo_id)
-    form = TodoForm(request.POST or None, instance=instance)
-    if form.is_valid():
-        form.save()
-        return redirect('index')
-    return render(request, 'edit_todo.html', {'item': form})
+def edit_todo(request, todo_id):
+    if request.method == 'POST':
+        item = MyTodo.objects.get(pk=todo_id)
+        print('slam post hastm')
+        form = TodoForm(request.POST or None, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        print('get run ')
+        item = MyTodo.objects.get(pk=todo_id)
+        return render(request, 'edit_todo.html', {'item': item})
 
 
-def my_view(request, id):
-    instance = get_object_or_404(MyTodo, id=id)
-    form = AddTodoForm(request.POST or None, instance=instance)
-    if form.is_valid():
-        form.save()
-        return redirect('index')
-    return render(request, 'edit_todo.html', {'item': form})
-
-
-def complete_todo(request, id):
-    this_todo = MyTodo.objects.get(pk=id)
+def complete_todo(request, todo_id):
+    this_todo = MyTodo.objects.get(pk=todo_id)
     this_todo.state_complete = True
     this_todo.save()
     return redirect('index')
 
 
-def incomplete_todo(request, id):
-    this_todo = MyTodo.objects.get(pk=id)
+def incomplete_todo(request, todo_id):
+    this_todo = MyTodo.objects.get(pk=todo_id)
     this_todo.state_complete = False
     this_todo.save()
     return redirect('index')

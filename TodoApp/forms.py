@@ -15,14 +15,6 @@ class AddTodoForm(forms.Form):
 
 
 class TodoForm(forms.ModelForm):
-
-    def __init__(self, *args, **kwargs):
-        super(TodoForm, self).__init__(*args, **kwargs)
-        self.fields['work'].widget.attrs.update({
-            'placeholder': 'کار خود را وارد نمایید',
-
-        })
-
     class Meta:
         model = MyTodo
-        fields = ('work',)
+        fields = ('work', 'state_complete')
