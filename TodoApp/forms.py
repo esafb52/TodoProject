@@ -17,4 +17,4 @@ class AddTodoForm(forms.Form):
 class TodoForm(forms.ModelForm):
     class Meta:
         model = MyTodo
-        fields = ('work', 'state_complete')
+        fields = ['work', ]

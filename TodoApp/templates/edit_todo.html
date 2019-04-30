@@ -11,14 +11,11 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="hidden" value="{{ item.state_complete }}" name="complete">
-                            <input type="text" class="form-control mr-sm-2" value="{{ item.work }}"
-                                   placeholder="{{ item.work }}">
+                            <input type="text" class="form-control mr-sm-2" value="{{ item.work }} " name="work">
+
                             <a href="{% url 'edit_todo' todo_id=item.id %}">
                                 <button type="submit" class="btn m-1 btn-jelly btn-jelly-success"> ویرایش کار</button>
                             </a>
-
-
 
                         </div>
                     </div>

@@ -29,12 +29,12 @@ def delete_todo(request, todo_id):
 
 def edit_todo(request, todo_id):
     if request.method == 'POST':
-        item = MyTodo.objects.get(pk=todo_id)
-        print('slam post hastm')
+        item = MyTodo.objects.get(id=todo_id)
         form = TodoForm(request.POST or None, instance=item)
         if form.is_valid():
             form.save()
             return redirect('index')
+        print(form.errors)
     else:
         print('get run ')
         item = MyTodo.objects.get(pk=todo_id)
