@@ -34,9 +34,7 @@ def edit_todo(request, todo_id):
         if form.is_valid():
             form.save()
             return redirect('index')
-        print(form.errors)
     else:
-        print('get run ')
         item = MyTodo.objects.get(pk=todo_id)
         return render(request, 'edit_todo.html', {'item': item})
 
